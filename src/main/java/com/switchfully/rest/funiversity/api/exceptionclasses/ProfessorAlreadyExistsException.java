@@ -1,4 +1,4 @@
-package com.switchfully.rest.funiversity.webapi.exceptionclasses;
+package com.switchfully.rest.funiversity.api.exceptionclasses;
 
 public class ProfessorAlreadyExistsException extends RuntimeException {
 

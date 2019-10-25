@@ -1,4 +1,4 @@
-package com.switchfully.rest.funiversity.webapi.dtos;
+package com.switchfully.rest.funiversity.api.dtos;
 
 public class RequestProfessorDto {
 

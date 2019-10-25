@@ -1,6 +1,6 @@
 package com.switchfully.rest.funiversity.domain;
 
-import com.switchfully.rest.funiversity.webapi.dtos.RequestProfessorDto;
+import com.switchfully.rest.funiversity.api.dtos.RequestProfessorDto;
 
 import java.util.Objects;
 import java.util.UUID;

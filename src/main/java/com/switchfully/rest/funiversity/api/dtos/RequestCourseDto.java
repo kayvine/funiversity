@@ -1,19 +1,10 @@
-package com.switchfully.rest.funiversity.webapi.dtos;
+package com.switchfully.rest.funiversity.api.dtos;
 
-public class CourseDto {
+public class RequestCourseDto {
 
-    private String id;
     private String name;
     private int studypoints;
     private String professorId;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

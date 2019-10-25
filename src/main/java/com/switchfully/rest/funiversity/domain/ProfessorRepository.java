@@ -39,12 +39,12 @@ public class ProfessorRepository {
      *
      * @param id the id of the {@code Professor} to find
      * @return the {@code Professor} object for the specified {@code id}
-     * @throws IllegalArgumentException if no {@code Professor} object was found for the specified {@code id}
+     * @throws RuntimeException if no {@code Professor} object was found for the specified {@code id}
      */
-    public Professor getById(String id) throws IllegalArgumentException {
+    public Professor getById(String id) throws RuntimeException {
         var foundProfessor = professorsById.get(id);
         if (foundProfessor == null) {
-            throw new IllegalArgumentException("No Professor could be found for id " + id);
+            throw new RuntimeException("No Professor could be found for id " + id);
         }
         return foundProfessor;
     }
@@ -54,7 +54,7 @@ public class ProfessorRepository {
     }
 
     public boolean professorAlreadyExists(Professor professor) {
-        return professorsById.contains(professor);
+        return professorsById.containsValue(professor);
     }
 
     public void delete(String id) {

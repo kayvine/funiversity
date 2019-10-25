@@ -1,8 +1,8 @@
-package com.switchfully.rest.funiversity.webapi;
+package com.switchfully.rest.funiversity.api;
 
 import com.switchfully.rest.funiversity.domain.Professor;
-import com.switchfully.rest.funiversity.webapi.dtos.RequestProfessorDto;
-import com.switchfully.rest.funiversity.webapi.dtos.ProfessorDto;
+import com.switchfully.rest.funiversity.api.dtos.RequestProfessorDto;
+import com.switchfully.rest.funiversity.api.dtos.ResponseProfessorDto;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,8 +14,8 @@ public class ProfessorMapper {
                 dto.getLastname());
     }
 
-    public ProfessorDto mapToDto(Professor professor) {
-        return new ProfessorDto()
+    public ResponseProfessorDto mapToDto(Professor professor) {
+        return new ResponseProfessorDto()
                 .setId(professor.getId())
                 .setFirstname(professor.getFirstname())
                 .setLastname(professor.getLastname());
