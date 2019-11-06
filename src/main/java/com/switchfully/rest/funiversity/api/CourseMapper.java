@@ -1,8 +1,8 @@
-package com.switchfully.rest.funiversity.webapi;
+package com.switchfully.rest.funiversity.api;
 
 import com.switchfully.rest.funiversity.domain.Course;
-import com.switchfully.rest.funiversity.webapi.dtos.CourseDto;
-import com.switchfully.rest.funiversity.webapi.dtos.RequestCourseDto;
+import com.switchfully.rest.funiversity.api.dtos.ResponseCourseDto;
+import com.switchfully.rest.funiversity.api.dtos.RequestCourseDto;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,8 +15,8 @@ public class CourseMapper {
                 dto.getProfessorId());
     }
 
-    public CourseDto mapToDto(Course course) {
-        return new CourseDto()
+    public ResponseCourseDto mapToDto(Course course) {
+        return new ResponseCourseDto()
                 .setId(course.getId())
                 .setName(course.getName())
                 .setStudypoints(course.getStudypoints())

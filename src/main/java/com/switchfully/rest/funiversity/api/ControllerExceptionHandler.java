@@ -1,7 +1,7 @@
-package com.switchfully.rest.funiversity.webapi;
+package com.switchfully.rest.funiversity.api;
 
-import com.switchfully.rest.funiversity.webapi.exceptionclasses.CourseAlreadyExistsException;
-import com.switchfully.rest.funiversity.webapi.exceptionclasses.ProfessorAlreadyExistsException;
+import com.switchfully.rest.funiversity.api.exceptionclasses.CourseAlreadyExistsException;
+import com.switchfully.rest.funiversity.api.exceptionclasses.ProfessorAlreadyExistsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;

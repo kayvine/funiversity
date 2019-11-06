@@ -1,8 +1,9 @@
-package com.switchfully.rest.funiversity.webapi;
+package com.switchfully.rest.funiversity.api;
 
+import com.switchfully.rest.funiversity.api.exceptionclasses.ProfessorAlreadyExistsException;
 import com.switchfully.rest.funiversity.services.ProfessorService;
-import com.switchfully.rest.funiversity.webapi.dtos.RequestProfessorDto;
-import com.switchfully.rest.funiversity.webapi.dtos.ProfessorDto;
+import com.switchfully.rest.funiversity.api.dtos.RequestProfessorDto;
+import com.switchfully.rest.funiversity.api.dtos.ResponseProfessorDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,18 @@ public class ProfessorController {
         this.professorMapper = professorMapper;
     }
 
+    @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseProfessorDto createProfessor(@RequestBody RequestProfessorDto createProfessorDto) throws ProfessorAlreadyExistsException {
+        logger.info("Creating new professor ...");
+        return professorMapper.mapToDto(
+                professorService.createNewProfessor(createProfessorDto)
+        );
+    }
+
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public List<ProfessorDto> getAll() {
+    public List<ResponseProfessorDto> getAll() {
         logger.info("Handler method getAll() is called");
         return professorService.getAllProfessors().stream()
                 .map(professorMapper::mapToDto)
@@ -42,24 +52,15 @@ public class ProfessorController {
 
     @GetMapping(path = "/{id}", produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ProfessorDto getProfessor(@PathVariable(value = "id") String id) {
+    public ResponseProfessorDto getProfessor(@PathVariable(value = "id") String id) {
         return professorMapper.mapToDto(
                 professorService.getProfessorById(id)
         );
     }
 
-    @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
-    public ProfessorDto createProfessor(@RequestBody RequestProfessorDto createProfessorDto) {
-        logger.info("Creating new professor ...");
-        return professorMapper.mapToDto(
-                professorService.createNewProfessor(createProfessorDto)
-        );
-    }
-
     @PutMapping(path = "/{id}", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ProfessorDto updateProfessor(@PathVariable String id, @RequestBody RequestProfessorDto updateProfessorDto) {
+    public ResponseProfessorDto updateProfessor(@PathVariable String id, @RequestBody RequestProfessorDto updateProfessorDto) {
         logger.info("Updating professor ...");
         return professorMapper.mapToDto(
                 professorService.updateProfessor(id, updateProfessorDto)

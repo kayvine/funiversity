@@ -1,6 +1,6 @@
-package com.switchfully.rest.funiversity.webapi.dtos;
+package com.switchfully.rest.funiversity.api.dtos;
 
-public class CourseDto {
+public class ResponseCourseDto {
 
     private String id;
     private String name;
@@ -11,7 +11,7 @@ public class CourseDto {
         return id;
     }
 
-    public CourseDto setId(String id) {
+    public ResponseCourseDto setId(String id) {
         this.id = id;
         return this;
     }
@@ -20,7 +20,7 @@ public class CourseDto {
         return name;
     }
 
-    public CourseDto setName(String name) {
+    public ResponseCourseDto setName(String name) {
         this.name = name;
         return this;
     }
@@ -29,7 +29,7 @@ public class CourseDto {
         return studypoints;
     }
 
-    public CourseDto setStudypoints(int studypoints) {
+    public ResponseCourseDto setStudypoints(int studypoints) {
         this.studypoints = studypoints;
         return this;
     }
@@ -38,7 +38,7 @@ public class CourseDto {
         return professorId;
     }
 
-    public CourseDto setProfessorId(String professorId) {
+    public ResponseCourseDto setProfessorId(String professorId) {
         this.professorId = professorId;
         return this;
     }
