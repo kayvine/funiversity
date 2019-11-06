@@ -11,31 +11,36 @@ public class CourseDto {
         return id;
     }
 
-    public void setId(String id) {
+    public CourseDto setId(String id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public CourseDto setName(String name) {
         this.name = name;
+        return this;
     }
 
     public int getStudypoints() {
         return studypoints;
     }
 
-    public void setStudypoints(int studypoints) {
+    public CourseDto setStudypoints(int studypoints) {
         this.studypoints = studypoints;
+        return this;
     }
 
     public String getProfessorId() {
         return professorId;
     }
 
-    public void setProfessorId(String professorId) {
+    public CourseDto setProfessorId(String professorId) {
         this.professorId = professorId;
+        return this;
     }
+
 }

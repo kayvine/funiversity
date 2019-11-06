@@ -20,4 +20,15 @@ public class Course {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getStudypoints() {
+        return studypoints;
+    }
+
+    public String getProfessorId() {
+        return professorId;
+    }
 }
